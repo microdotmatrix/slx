@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Image } from "../image";
 import { Card } from "../ui/card";
 import { headers } from "next/headers";
+import { getURL } from "@/lib/utils";
 
 export const GalleryCard = ({
   item,
@@ -13,10 +14,8 @@ export const GalleryCard = ({
 }) => {
   const headersList = headers();
   const pathname = headersList.get("x-pathname");
-  const url = new URL(
-    pathname ? pathname : "",
-    `http://localhost:3000/art/${category}`,
-  );
+  const siteUrl = getURL(pathname ? pathname : "", false);
+  const url = new URL(pathname ? pathname : "", `${siteUrl}/art/${category}`);
 
   url.searchParams.set("modal", "true");
   url.searchParams.set("id", item.id.toString());
