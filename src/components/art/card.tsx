@@ -12,8 +12,7 @@ export const GalleryCard = ({
   item: { id: string; url: string; title: string };
   category: string;
 }) => {
-  const headersList = headers();
-  const pathname = headersList.get("x-pathname");
+  const pathname = headers().get("x-pathname");
   const siteUrl = getURL(pathname ? pathname : "", false);
   const url = new URL(pathname ? pathname : "", `${siteUrl}/art/${category}`);
 
