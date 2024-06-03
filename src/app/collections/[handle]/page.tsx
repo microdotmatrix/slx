@@ -1,6 +1,18 @@
 import { Suspense } from "react";
 import { Orbit } from "@/components/loading";
-import { getCollectionProducts } from "@/lib/shopify/graphql/collections";
+import {
+  getCollectionProducts,
+  getCollectionHandles,
+} from "@/lib/shopify/graphql/collections";
+
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const collections = await getCollectionHandles();
+  return collections?.edges?.map((collection) => ({
+    handle: collection.node.handle,
+  }));
+}
 
 export default function CollectionPage({
   params: { handle },

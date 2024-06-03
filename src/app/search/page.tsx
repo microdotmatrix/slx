@@ -5,6 +5,8 @@ import { sorting, defaultSort } from "@/lib/shopify/utils";
 import { Orbit } from "@/components/loading";
 import { Transition } from "@/components/transition";
 
+export const revalidate = 0;
+
 export default async function SearchPage({
   searchParams,
 }: {

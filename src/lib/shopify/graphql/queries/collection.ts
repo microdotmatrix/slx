@@ -1,4 +1,4 @@
-import { productFragment, seoFragment } from '../fragments';
+import { productFragment, seoFragment } from "../fragments";
 
 const collectionFragment = /* GraphQL */ `
   fragment collection on Collection {
@@ -48,4 +48,16 @@ export const getCollectionProductsQuery = /* GraphQL */ `
     }
   }
   ${productFragment}
+`;
+
+export const getCollectionHandlesQuery = /* GraphQL */ `
+  query getCollectionHandles {
+    collections(first: 100) {
+      edges {
+        node {
+          handle
+        }
+      }
+    }
+  }
 `;

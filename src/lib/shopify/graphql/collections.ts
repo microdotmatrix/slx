@@ -18,6 +18,7 @@ import {
   getCollectionQuery,
   getCollectionProductsQuery,
   getCollectionsQuery,
+  getCollectionHandlesQuery,
 } from "./queries";
 
 export async function getCollection(
@@ -90,4 +91,13 @@ export async function getCollections(): Promise<Collection[]> {
   ];
 
   return collections;
+}
+
+export async function getCollectionHandles(): Promise<string[] | undefined> {
+  const res = await shopify.request<ShopifyProductsOperation>({
+    query: getCollectionHandlesQuery,
+    tags: [TAGS.collections],
+  });
+
+  return res.body.data.collections;
 }

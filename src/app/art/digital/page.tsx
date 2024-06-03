@@ -7,6 +7,8 @@ export type Props = {
   searchParams: Record<string, string> | null | undefined;
 };
 
+export const revalidate = 3600;
+
 export default function Page({ searchParams }: Props) {
   return (
     <Suspense
