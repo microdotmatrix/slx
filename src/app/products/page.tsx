@@ -22,15 +22,8 @@ async function Collection() {
   });
 
   return (
-    <div>
-      {products.map((product) => (
-        <div key={product.id}>
-          <h4>
-            <Link href={`/products/${product.handle}`}>{product.title}</Link>
-          </h4>
-          <p>{product.description}</p>
-        </div>
-      ))}
+    <div className="grid size-full place-content-center">
+      <h2>Under Construction</h2>
     </div>
   );
 }

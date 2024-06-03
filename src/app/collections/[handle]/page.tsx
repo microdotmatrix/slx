@@ -36,8 +36,8 @@ const Collection = async ({ handle }: { handle: string }) => {
   const collection = await getCollectionProducts({ collection: handle });
 
   return (
-    <div>
-      <pre>{JSON.stringify(collection, null, 2)}</pre>
+    <div className="grid size-full place-content-center">
+      <h2>Under Construction</h2>
     </div>
   );
 };
