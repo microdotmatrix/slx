@@ -9,7 +9,6 @@ export default async function CollectionPage() {
   const collections = await getCollections();
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <pre>{JSON.stringify(collections, null, 2)}</pre>
       <Collection />
     </Suspense>
   );
