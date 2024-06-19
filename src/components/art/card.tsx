@@ -1,11 +1,9 @@
 "use client";
 
 import Link from "next/link";
-// import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Image } from "../image";
 import { Card } from "../ui/card";
-import { headers } from "next/headers";
 import { getURL } from "@/lib/utils";
 
 export const GalleryCard = ({
@@ -24,13 +22,13 @@ export const GalleryCard = ({
     siteUrl = getURL(pathname ? pathname : "", false);
   }
   // const siteUrl = getURL(pathname ? pathname : "", false);
-  const url = new URL(`${pathname}`);
+  const url = new URL(`${siteUrl}/art/${category}`);
 
   url.searchParams.set("modal", "true");
   url.searchParams.set("id", item.id.toString());
 
   return (
-    <Link href={siteUrl.toString()} scroll={false}>
+    <Link href={url.toString()} scroll={false}>
       <Card className="mb-1 overflow-hidden" style={{ maxBlockSize: "780px" }}>
         <figure className="relative overflow-hidden">
           <Image
