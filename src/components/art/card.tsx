@@ -24,7 +24,7 @@ export const GalleryCard = ({
     siteUrl = getURL(pathname ? pathname : "", false);
   }
   // const siteUrl = getURL(pathname ? pathname : "", false);
-  const url = new URL(`${siteUrl}/art/${category}`);
+  const url = new URL(`${pathname}`);
 
   url.searchParams.set("modal", "true");
   url.searchParams.set("id", item.id.toString());
