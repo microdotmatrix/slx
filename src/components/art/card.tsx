@@ -13,7 +13,13 @@ export const GalleryCard = ({
   category: string;
 }) => {
   const pathname = headers().get("x-pathname");
-  const siteUrl = getURL(pathname ? pathname : "", false);
+  let siteUrl;
+  if (process.env.NODE_ENV === "development") {
+    siteUrl = "http://localhost:3000";
+  } else {
+    siteUrl = getURL(pathname ? pathname : "", false);
+  }
+  // const siteUrl = getURL(pathname ? pathname : "", false);
   const url = new URL(pathname ? pathname : "", `${siteUrl}/art/${category}`);
 
   url.searchParams.set("modal", "true");
