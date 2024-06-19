@@ -30,7 +30,7 @@ export const GalleryCard = ({
   url.searchParams.set("id", item.id.toString());
 
   return (
-    <Link href={url.toString()} scroll={false}>
+    <Link href={siteUrl.toString()} scroll={false}>
       <Card className="mb-1 overflow-hidden" style={{ maxBlockSize: "780px" }}>
         <figure className="relative overflow-hidden">
           <Image
