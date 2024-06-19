@@ -19,7 +19,7 @@ export const GalleryCard = ({
   if (process.env.NODE_ENV === "development") {
     siteUrl = "http://localhost:3000";
   } else {
-    siteUrl = getURL(pathname ? pathname : "", false);
+    siteUrl = pathname;
   }
   // const siteUrl = getURL(pathname ? pathname : "", false);
   const url = new URL(`${siteUrl}/art/${category}`);
