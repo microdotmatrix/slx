@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { headers } from "next/headers";
 import { Image } from "../image";
 import { Card } from "../ui/card";
 import { getURL } from "@/lib/utils";
@@ -13,8 +11,8 @@ export const GalleryCard = ({
   item: { id: string; url: string; title: string };
   category: string;
 }) => {
-  // const pathname = headers().get("x-pathname");
-  const pathname = usePathname();
+  const pathname = headers().get("x-pathname");
+  // const pathname = usePathname();
   let siteUrl;
   if (process.env.NODE_ENV === "development") {
     siteUrl = "http://localhost:3000";
