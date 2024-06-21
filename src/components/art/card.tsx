@@ -12,7 +12,15 @@ export const GalleryCard = ({
   category: string;
 }) => {
   const pathname = headers().get("x-pathname");
-  const baseUrl = new URL(pathname ? pathname : "", "http://localhost:3000");
+  let baseUrl;
+  if (process.env.NODE_ENV === "development") {
+    baseUrl = new URL(pathname ? pathname : "", "http://localhost:3000");
+  } else {
+    baseUrl = new URL(
+      pathname ? pathname : "",
+      process.env.NEXT_PUBLIC_SITE_URL,
+    );
+  }
   const url = new URL(`${baseUrl}/art/${category}`);
 
   url.searchParams.set("modal", "true");
