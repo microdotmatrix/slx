@@ -12,15 +12,8 @@ export const GalleryCard = ({
   category: string;
 }) => {
   const pathname = headers().get("x-pathname");
-  // const pathname = usePathname();
-  let siteUrl;
-  if (process.env.NODE_ENV === "development") {
-    siteUrl = "http://localhost:3000";
-  } else {
-    siteUrl = pathname;
-  }
-  // const siteUrl = getURL(pathname ? pathname : "", false);
-  const url = new URL(`${siteUrl}/art/${category}`);
+  const baseUrl = new URL(pathname ? pathname : "", "http://localhost:3000");
+  const url = new URL(`${baseUrl}/art/${category}`);
 
   url.searchParams.set("modal", "true");
   url.searchParams.set("id", item.id.toString());
